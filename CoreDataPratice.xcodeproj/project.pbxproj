@@ -11,9 +11,10 @@
 		7D66B7082B22D282006D7EB2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D66B7072B22D282006D7EB2 /* SceneDelegate.swift */; };
 		7D66B70A2B22D282006D7EB2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D66B7092B22D282006D7EB2 /* ViewController.swift */; };
 		7D66B70D2B22D282006D7EB2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D66B70B2B22D282006D7EB2 /* Main.storyboard */; };
-		7D66B7102B22D282006D7EB2 /* CoreDataPratice.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D66B70E2B22D282006D7EB2 /* CoreDataPratice.xcdatamodeld */; };
+		7D66B7102B22D282006D7EB2 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D66B70E2B22D282006D7EB2 /* Model.xcdatamodeld */; };
 		7D66B7122B22D284006D7EB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D66B7112B22D284006D7EB2 /* Assets.xcassets */; };
 		7D66B7152B22D284006D7EB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D66B7132B22D284006D7EB2 /* LaunchScreen.storyboard */; };
+		7D66B71D2B22E14C006D7EB2 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D66B71C2B22E14C006D7EB2 /* MyTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		7D66B7112B22D284006D7EB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D66B7142B22D284006D7EB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7D66B7162B22D284006D7EB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D66B71C2B22E14C006D7EB2 /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +67,8 @@
 				7D66B7112B22D284006D7EB2 /* Assets.xcassets */,
 				7D66B7132B22D284006D7EB2 /* LaunchScreen.storyboard */,
 				7D66B7162B22D284006D7EB2 /* Info.plist */,
-				7D66B70E2B22D282006D7EB2 /* CoreDataPratice.xcdatamodeld */,
+				7D66B70E2B22D282006D7EB2 /* Model.xcdatamodeld */,
+				7D66B71C2B22E14C006D7EB2 /* MyTableViewCell.swift */,
 			);
 			path = CoreDataPratice;
 			sourceTree = "<group>";
@@ -144,7 +147,8 @@
 				7D66B70A2B22D282006D7EB2 /* ViewController.swift in Sources */,
 				7D66B7062B22D282006D7EB2 /* AppDelegate.swift in Sources */,
 				7D66B7082B22D282006D7EB2 /* SceneDelegate.swift in Sources */,
-				7D66B7102B22D282006D7EB2 /* CoreDataPratice.xcdatamodeld in Sources */,
+				7D66B71D2B22E14C006D7EB2 /* MyTableViewCell.swift in Sources */,
+				7D66B7102B22D282006D7EB2 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,13 +368,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		7D66B70E2B22D282006D7EB2 /* CoreDataPratice.xcdatamodeld */ = {
+		7D66B70E2B22D282006D7EB2 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				7D66B70F2B22D282006D7EB2 /* CoreDataPratice.xcdatamodel */,
 			);
 			currentVersion = 7D66B70F2B22D282006D7EB2 /* CoreDataPratice.xcdatamodel */;
-			path = CoreDataPratice.xcdatamodeld;
+			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

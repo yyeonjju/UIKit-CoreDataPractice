@@ -7,17 +7,40 @@
 
 import UIKit
 
+struct Person{
+    var name : String
+    var email : String
+}
+
 class ViewController: UIViewController {
     private let tableView = UITableView()
     
     var listArray : [Int] = [0,1,2,3,4]
     
-    private let plusBtn : UIButton = {
+    private let addBtn : UIButton = {
         var btn = UIButton()
-        btn.setTitle("항목 더하기", for: .normal)
+        btn.setTitle("추가", for: .normal)
         btn.backgroundColor = .brown
         btn.addTarget(self, action: #selector(addBtnTapped), for: .touchUpInside)
         return btn
+    }()
+    
+    private let delBtn : UIButton = {
+        var btn = UIButton()
+        btn.setTitle("삭제", for: .normal)
+        btn.backgroundColor = .brown
+        btn.addTarget(self, action: #selector(delBtnTapped), for: .touchUpInside)
+        return btn
+    }()
+    
+    private let btnsStackView : UIStackView = {
+        var sv = UIStackView()
+        sv.alignment = .center
+        sv.axis = .horizontal
+        sv.distribution = .fill
+        sv.spacing = 50
+
+        return sv
     }()
     
 
@@ -31,17 +54,20 @@ class ViewController: UIViewController {
     }
     
     func setupConstraints () {
-        view.addSubview(plusBtn)
-        plusBtn.translatesAutoresizingMaskIntoConstraints = false
+        btnsStackView.addArrangedSubview(addBtn)
+        btnsStackView.addArrangedSubview(delBtn)
+        
+        view.addSubview(btnsStackView)
+        btnsStackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            plusBtn.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
-            plusBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            btnsStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
+            btnsStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             //            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
-            tableView.topAnchor.constraint(equalTo: plusBtn.safeAreaLayoutGuide.bottomAnchor, constant: 30),
+            tableView.topAnchor.constraint(equalTo: btnsStackView.safeAreaLayoutGuide.bottomAnchor, constant: 30),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
@@ -65,6 +91,13 @@ class ViewController: UIViewController {
     @objc func addBtnTapped() {
         print("눌렀다")
         self.listArray.append(listArray.count)
+        self.tableView.reloadData() //항목추가하고 업데이트된 데이터로 테이블뷰 리로드
+        print(listArray)
+    }
+    
+    @objc func delBtnTapped() {
+        print("눌렀다")
+        listArray.removeLast()
         self.tableView.reloadData() //항목추가하고 업데이트된 데이터로 테이블뷰 리로드
         print(listArray)
     }

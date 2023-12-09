@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let VC = UINavigationController(rootViewController: ViewController())
         
-        VC.navigationBar.backgroundColor = .yellow
+//        VC.navigationBar.backgroundColor = .yellow
         window?.rootViewController = VC
         window?.makeKeyAndVisible() //현재 창을 표시하고 같은 수준 이하의 다른 모든 창 앞에 배치하는 편리한 방법
         

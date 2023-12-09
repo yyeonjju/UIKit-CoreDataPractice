@@ -57,22 +57,31 @@ class CoreDataManager {
     //Update : 업데이트하기
     func updateRowNum(num : Int) {
         let fetchResults = fetchRow()
-        fetchResults[0].number = Int16(num)
-        
-        saveToContext()
+        if fetchResults.isEmpty { //아무것도 저장되지 않았으면 저장
+            insertRowNum(num: num)
+        } else { // 저장된 값이 있다면 그 값을 새로 업데이트
+            fetchResults[0].number = Int16(num)
+            saveToContext()
+        }
     }
     
     //Delete : 삭제하기
     func deleteRowNum() {
         let fetchResults = fetchRow()
-        context.delete(fetchResults[0])
-        saveToContext()
+        if !fetchResults.isEmpty {
+            context.delete(fetchResults[0])
+            saveToContext()
+        }
     }
     
     //우리가 실제 필요한 타입 형태로 받아주기
-    func getBookmarks() -> Int {
+    func getRowNum() -> Int? {
         let fetchResults = fetchRow()
-        return Int(fetchResults[0].number)
+        
+        if !fetchResults.isEmpty {
+            return Int(fetchResults[0].number)
+        }
+        return nil
 
     }
     

@@ -13,7 +13,7 @@ import CoreData
 class CoreDataManager {
     static var shared: CoreDataManager = CoreDataManager()
     
-    //NSPersistentContainer으로부터 NSManagedObjectContext를 가져옴
+    //appDelegate에서 만들었던 Persistent Container으로부터 NSManagedObjectContext를 가져옴
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     lazy var context = appDelegate.persistentContainer.viewContext
     
@@ -43,17 +43,14 @@ class CoreDataManager {
     func fetchRow() -> [Row] {
         do {
             let request = Row.fetchRequest()
-            let results = try context.fetch(request) //as! [Row]
-            results.forEach {
-                print("Row Entity - number", $0.number)
-          }
+            let results = try context.fetch(request)
             return results
         } catch {
             print(error.localizedDescription)
         }
         return []
     }
-
+    
     //Update : 업데이트하기
     func updateRowNum(num : Int) {
         let fetchResults = fetchRow()
@@ -82,7 +79,7 @@ class CoreDataManager {
             return Int(fetchResults[0].number)
         }
         return nil
-
     }
-    
 }
+
+

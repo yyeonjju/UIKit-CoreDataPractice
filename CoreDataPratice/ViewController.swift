@@ -111,32 +111,20 @@ class ViewController: UIViewController {
     }
     
     @objc func addBtnTapped() {
-        print("눌렀다")
-//        saveTableRow(count: listArray.count)
         self.listArray.append(listArray.count)
         self.tableView.reloadData() //항목추가하고 업데이트된 데이터로 테이블뷰 리로드
-        print(listArray)
         
         CoreDataManager.shared.updateRowNum(num: listArray.count)
-        
     }
     
     @objc func checkBtnTapped() {
-        //코어데이터 값 받아오기 테스트
-        print("❤️❤️❤️❤️getRowNum", CoreDataManager.shared.getRowNum())
+        print("코어데이터에 저장되어 있는 값 -> ", CoreDataManager.shared.getRowNum())
     }
     
     @objc func delBtnTapped() {
-//        print("눌렀다")
-//        listArray.removeLast()
-//        self.tableView.reloadData() //항목추가하고 업데이트된 데이터로 테이블뷰 리로드
-//        print(listArray)
-
-        //코어데이터 삭제하기 테스트
         CoreDataManager.shared.deleteRowNum()
-        self.listArray = [0,1,2]
+        self.listArray = [0,1,2,3,4]
         self.tableView.reloadData()
-
     }
 }
 
@@ -146,13 +134,13 @@ extension ViewController: UITableViewDataSource {
     
     //⭐️테이블뷰⭐️ 1) 테이블뷰에 몇개의 데이터를 표시할 것인지(셀이 몇개인지)를 뷰컨트롤러에게 물어봄
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(#function)
+//        print(#function)
         return listArray.count
     }
     
     //⭐️테이블뷰⭐️ 2) 셀의 구성(셀에 표시하고자 하는 데이터 표시)을 뷰컨트롤러에게 물어봄
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print(#function)
+//        print(#function)
         
         // (힙에 올라간)재사용 가능한 셀을 꺼내서 사용하는 메서드 (애플이 미리 잘 만들어 놓음)
         // (사전에 셀을 등록하는 과정이 내부 메커니즘에 존재)
@@ -173,4 +161,3 @@ extension ViewController: UITableViewDelegate {
 
     }
 }
-

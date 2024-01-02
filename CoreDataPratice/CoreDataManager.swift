@@ -18,12 +18,21 @@ class CoreDataManager {
     lazy var context = appDelegate.persistentContainer.viewContext
     
     //Entity를 가져옴 - 내가 원하는 데이터들을 어떤 Entity에 attribute로 저장하고 싶은데!
-    lazy var entity = NSEntityDescription.entity(forEntityName: "Row", in: context)
+    lazy var entity = NSEntityDescription.entity(forEntityName: Row.name, in: context)
     
     // 값 삽입
     func insertRowNum(num : Int) {
+        
+        
+        let profile = Profile(context: context)
         if let entity = entity {
+            
+            //NSManagedObject를 만든다
             let row = NSManagedObject(entity: entity, insertInto: context)
+            
+//            row.convertToDefaultArray()
+            
+            //NSManagedObject에 값을 세팅
             row.setValue(num, forKey: "number")
             
             saveToContext()

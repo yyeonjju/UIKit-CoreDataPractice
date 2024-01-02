@@ -5,7 +5,7 @@
         <attribute name="email" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
     </entity>
-    <entity name="Row" representedClassName="Row" syncable="YES" codeGenerationType="class">
+    <entity name="Row" representedClassName="Row" syncable="YES" codeGenerationType="category">
         <attribute name="number" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <entity name="Student" representedClassName="Student" syncable="YES" codeGenerationType="class">
